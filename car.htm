@@ -23,34 +23,40 @@ body {
 	font-style: italic;
 	font-family: Arial;
 }
-a:link {
-  color: #cccccc;   /* colour before it's been clicked */
-}
-
-a:visited {
-  color: #ffffff;   /* colour after it's been clicked */
-}
-
-a:hover {
-  color: #98D0D9;   /* optional: colour when hovering over it */
-}
-
-a:active {
-  color: #ff0000;   /* optional: colour at the exact moment of clicking */
-}
-.style69 {
-	font-family: Arial;
-	font-weight: bold;
-	font-size: 36px;
-	color: #FFFFFF;
-}
-.style71 {color: #9CCEDE; font-size: large;}
-.style72 {
-	font-size: 24px;
-	font-family: Geneva, Arial, Helvetica, sans-serif;
-	font-style: italic;
-}
+.style29 {color: #FFFFFF}
+.style40 {font-family: "MS Sans Serif"; font-size: xx-large; color: #CCCCCC;}
 -->
+#carOfTheDay h1 {
+  margin: 0px 0 0px 0;
+  font-family: "MS Sans Serif",  cursive;  /* change to whatever font you want */
+  font-style: italic;
+  font-size: 30px; 
+  text-align: center;
+  text-decoration:underline;                       /* optional: control heading size */
+  color: #CCCCCC;                           /* optional: control heading color */
+}
+#carOfTheDay p {
+  margin: 0px 0 0x 0;
+  font-family: "MS Sans Serif";              /* can be different from the heading */
+  font-size: 15px;
+  color: #9CCEDE;
+}
+#carOfTheDay {
+  max-width: 1000px;   /* overall width of the whole widget */
+}
+
+#carOfTheDay img {
+  width: 100%;
+  height: 580px;       /* fixed height */
+  object-fit: cover;   /* crops to fill the box, no stretching/distortion */
+}
+.style76 {color: #9CCEDE}
+.style80 {color: #EBEBDB; font-size: 12px; }
+.style81 {	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-style: italic;
+	font-weight: bold;
+	color: #EBEBDB;
+}
 </style>
 <script language="JavaScript" type="text/JavaScript">
 <!--
@@ -66,34 +72,19 @@ function MM_preloadImages() { //v3.0
 </script>
 <script language="JavaScript" type="text/JavaScript">
 <!--
+
+
+
 function MM_reloadPage(init) {  //reloads the window if Nav4 resized
   if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
     document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
   else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
 }
 MM_reloadPage(true);
-
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
 //-->
 </script>
 <script language="JavaScript" type="text/javascript">
 <!--
-
 <!--
 function updateClock() {
   var now = new Date();
@@ -112,6 +103,14 @@ function updateClock() {
   setTimeout("updateClock()", 1000);
 }
 // -->
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
 
 function MM_nbGroup(event, grpName) { //v6.0
   var i,img,nbArr,args=MM_nbGroup.arguments;
@@ -146,37 +145,25 @@ function MM_nbGroup(event, grpName) { //v6.0
       nbArr[nbArr.length] = img;
   } }
 }
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
 //-->
 </script>
 </head>
 
-<body onLoad="MM_preloadImages('button9xhover.fw.png','buttonabouthover.fw.png','mptabhover.fw.png','updateshover.fw.png','webchathover.fw.png');updateClock()">
+<body onLoad="updateClock();MM_preloadImages('webchathover.fw.png','mptabhover.fw.png','updateshover.fw.png','button9xhover.fw.png','buttonabouthover.fw.png')">
+<div id="Layer7" style="position:absolute; width:11px; height:37px; z-index:9; left: 618px; top: 329px;"><img src="cubefloat.gif" width="16" height="35"></div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <div id="Layer1" class="style21" style="position:absolute; width:200px; height:115px; z-index:1; left: 321px; top: 36px;"><img src="window.fw.png" width="1289" height="963" align="middle">
-  <div id="Layer12" style="position:absolute; width:17px; height:60px; z-index:4; left: 619px; top: 465px;"><img src="cubefloat.gif" width="22" height="54"></div>
-  
-  <div id="Layer11" class="style71" style="position:absolute; width:1049px; height:332px; z-index:3; left: 107px; top: 525px;">  
-    <table width="1046" height="356" border="1">
-      <tr>
-        <td height="242" bgcolor="#333333"><ul class="style72">
-          <li>
-            <p>Net Station is navigated via the top of the Main Window, the tabs are used to navigate through Net Station's Main Zones, these are the pages that are frequently updated, and these tabs will be expanded upon in the future. The buttons above - Home &amp; About, are only used to return you here (Home) and to give some explanation to why this project came to be (About). </p>
-          </li>
-        </ul>          
-          <ul class="style72">
-          <li>
-            <p>The real-time clock at the top right of the Net Station Window will display your current local time in a 24-hour format.</p>
-          </li>
-          </ul>          
-          <ul class="style72">
-            <li>
-              <p>The icons next to the clock along the top of the Net Station Window are also bonus Zones to be viewed, as well as a shoutout for a mutual friend and his website. Check them out.</p>
-            </li>
-          </ul></td>
-      </tr>
-    </table>
-  </div>
-  <div id="Layer7" style="position:absolute; width:493px; height:43px; z-index:2; left: 278px; top: 79px;">
+    <div id="Layer7" style="position:absolute; width:493px; height:43px; z-index:2; left: 278px; top: 79px;">
       <table border="0" cellpadding="0" cellspacing="0">
         <tr>
           <td><a href="webchat.htm" target="_top" onClick="MM_nbGroup('down','group1','Netsurfers','',1)" onMouseOver="MM_nbGroup('over','Netsurfers','webchathover.fw.png','',1)" onMouseOut="MM_nbGroup('out')"><img src="webchat.fw.png" alt="" name="Netsurfers" width="162" height="38" border="0" onload=""></a></td>
@@ -184,7 +171,7 @@ function MM_nbGroup(event, grpName) { //v6.0
           <td><a href="updates.htm" target="_top" onClick="MM_nbGroup('down','group1','updates','',1)" onMouseOver="MM_nbGroup('over','updates','updateshover.fw.png','',1)" onMouseOut="MM_nbGroup('out')"><img src="updates.fw.png" alt="" name="updates" width="162" height="38" border="0"></a></td>
         </tr>
       </table>
-  </div>
+    </div>
 </div>
 <div id="Layer2" style="position:absolute; width:220px; height:78px; z-index:2; left: 357px; top: 71px;"><img src="netstationgif.gif" width="224" height="76" align="left"></div>
 <div id="Layer5" style="position:absolute; width:134px; height:32px; z-index:7; left: 1402px; top: 76px;">
@@ -194,15 +181,147 @@ function MM_nbGroup(event, grpName) { //v6.0
 <div id="Layer8" style="position:absolute; width:75px; height:25px; z-index:10; left: 1312px; top: 81px;"><a target="_blank" href="https://konym.live" title="To konym.live"><img src="https://konym.live/images/button.png" align="bottom" style="width: 75px; height: 25px" /></a></div>
 <div id="Layer6" style="position:absolute; width:164px; height:28px; z-index:6; left: 852px; top: 78px;"><img src="lighthome.png" width="163" height="22"></div>
 <div id="Layer9" style="position:absolute; width:71px; height:30px; z-index:11; left: 1233px; top: 71px;"><a href="car.htm"><img src="cotd.gif" width="80" height="45" border="0"></a></div>
-
-<div id="Layer4" style="position:absolute; width:1046px; height:244px; z-index:12; left: 428px; top: 249px; background-color: #333333; layer-background-color: #333333; border: 1px none #000000;" class="style69">
-  <table width="1046" height="241" border="1">
-    <tr>
-      <td height="235"><div align="left">This website aims to host various kinds of multimedia and servers for legacy games, as well as be a place for users to connect with each other and chat. It is fundamentally a hobby website, so development and updates will be slow, but be sure to check back once in a while for anything new.</div></td>
-    </tr>
-  </table>
+<div id="Layer10" style="position:absolute; width:334px; height:52px; z-index:13; left: 429px; top: 181px;"><img src="caroftheday.fw.png" width="365" height="41"></div>
+<div id="Layer4" style="position:absolute; width:1081px; height:755px; z-index:8; left: 462px; top: 208px;">
+  <div id="carOfTheDay">
+  <div id="content">
+    <div align="center">Loading...</div>
+  </div>
+  <div id="imageWrap">
+    <div align="center">Fetching today's classic...</div>
+  </div>
 </div>
-<div id="Layer10" style="position:absolute; width:334px; height:52px; z-index:13; left: 429px; top: 181px;"><img src="welcome.fw.png" width="326" height="46"></div>
-
+</div>
+<script>
+  // Curated list of classic Japanese cars (Wikipedia article titles)
+  var carList = [
+    "Toyota_2000GT",
+    "Nissan_Skyline_GT-R",
+    "Mazda_Cosmo",
+    "Honda_S800",
+    "Datsun_240Z",
+    "Toyota_Corolla_AE86",
+    "Mazda_RX-7",
+    "Toyota_Celica",
+    "Nissan_Fairlady_Z",
+    "Isuzu_117_Coup%C3%A9",
+    "Subaru_360",
+    "Honda_NSX",
+    "Mitsubishi_GTO",
+    "Toyota_Sports_800",
+    "Nissan_Silvia",
+    "Mazda_Savanna",
+    "Toyota_Supra",
+    "Nissan_Skyline",
+    "Mazda_Familia",
+    "Honda_Civic_(first_generation)",
+    "Datsun_Fairlady",
+    "Toyota_Sprinter_Trueno",
+    "Nissan_Cedric",
+    "Mitsubishi_Lancer_Evolution",
+    "Toyota_MR2",
+    "Mazda_323",
+    "Nissan_Laurel",
+    "Honda_Prelude",
+    "Toyota_Crown",
+    "Datsun_Bluebird",
+    "Nissan_Leopard_F31",
+    "Nissan_Cedric",
+    "Nissan_Gloria",
+    "Toyota_Soarer",
+    "Toyota_Chaser",
+    "Toyota_Mark_II",
+    "Toyota_Cresta",
+    "Mazda_RX-3",
+    "Mazda_RX-2",
+    "Mazda_Luce",
+    "Honda_Integra",
+    "Honda_CR-X",
+    "Toyota_Starlet",
+    "Toyota_Corona",
+    "Subaru_Alcyone",
+    "Mitsubishi_Starion",
+    "Mitsubishi_Eclipse",
+    "Isuzu_Piazza",
+    "Nissan_Pulsar",
+    "Nissan_Sunny",
+    "Toyota_Paseo",
+    "Suzuki_Cappuccino",
+    "Autozam_AZ-1",
+    "Honda_Beat",
+    "Mazda_Eunos_Cosmo",
+    "Toyota_Century",
+    "Nissan_Skyline_(R32)",
+    "Nissan_Skyline_(R33)",
+    "Nissan_Skyline_(R34)",
+    "Toyota_Corolla_Levin"
+  ];
+ 
+  function getDayIndex() {
+    var now = new Date();
+    var start = new Date(now.getFullYear(), 0, 0);
+    var diff = now - start;
+    var oneDay = 1000 * 60 * 60 * 24;
+    var dayOfYear = Math.floor(diff / oneDay);
+    return dayOfYear % carList.length;
+  }
+ 
+  function loadCarOfTheDay() {
+    var title = carList[getDayIndex()];
+    var apiUrl = "https://en.wikipedia.org/api/rest_v1/page/summary/" + title;
+ 
+    fetch(apiUrl)
+      .then(function(response) {
+        if (!response.ok) throw new Error("Wikipedia fetch failed");
+        return response.json();
+      })
+      .then(function(data) {
+        renderCard(data);
+      })
+      .catch(function(err) {
+        showError();
+      });
+  }
+ 
+  function renderCard(data) {
+    var imageWrap = document.getElementById('imageWrap');
+    var content = document.getElementById('content');
+ 
+    var imgUrl = null;
+    if (data.originalimage && data.originalimage.source) {
+      imgUrl = data.originalimage.source;
+    } else if (data.thumbnail && data.thumbnail.source) {
+      imgUrl = data.thumbnail.source;
+    }
+ 
+    if (imgUrl) {
+      imageWrap.innerHTML = '<img src="' + imgUrl + '" alt="' + escapeHtml(data.title) + '">';
+    } else {
+      imageWrap.innerHTML = '';
+    }
+ 
+    var displayTitle = data.title ? data.title.replace(/_/g, ' ') : 'Unknown';
+    var extract = data.extract ? data.extract : '';
+ 
+    content.innerHTML =
+      '<h1>' + escapeHtml(displayTitle) + '</h1>' +
+      '<p>' + escapeHtml(extract) + '</p>';
+  }
+ 
+  function showError() {
+    var imageWrap = document.getElementById('imageWrap');
+    var content = document.getElementById('content');
+    imageWrap.innerHTML = '';
+    content.innerHTML = '<p>Could not load today\'s car.</p>';
+  }
+ 
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+ 
+  loadCarOfTheDay();
+</script>
 </body>
 </html>

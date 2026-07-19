@@ -12,6 +12,10 @@ body {
 	background-repeat:no-repeat;
 	background-image: url();
 }
+body {
+	cursor: url('Left Pointer.cur'), auto;
+	background-color: #84C1FF;
+}
 .style21 {color: #000000}
 .style24 {
 	font-size: xx-large;
@@ -30,6 +34,16 @@ body {
 }
 .style31 {font-size: x-large; font-weight: bold; font-style: italic; }
 .style32 {font-size: xx-large; font-weight: bold; font-style: italic; }
+.style69 {	font-family: Arial;
+	font-weight: bold;
+	font-size: 36px;
+	color: #FFFFFF;
+}
+.style71 {color: #9CCEDE; font-size: large;}
+.style72 {	font-size: 24px;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-style: italic;
+}
 -->
 </style>
 <script language="JavaScript" type="text/JavaScript">
@@ -46,32 +60,19 @@ function MM_preloadImages() { //v3.0
 </script>
 <script language="JavaScript" type="text/JavaScript">
 <!--
+
+
+
 function MM_reloadPage(init) {  //reloads the window if Nav4 resized
   if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
     document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
   else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
 }
 MM_reloadPage(true);
-
-function MM_swapImgRestore() { //v3.0
-  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-}
-
-function MM_findObj(n, d) { //v4.01
-  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-  if(!x && d.getElementById) x=d.getElementById(n); return x;
-}
-
-function MM_swapImage() { //v3.0
-  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-}
 //-->
 </script>
 <script language="JavaScript" type="text/javascript">
+<!--
 <!--
 function updateClock() {
   var now = new Date();
@@ -90,32 +91,95 @@ function updateClock() {
   setTimeout("updateClock()", 1000);
 }
 // -->
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_nbGroup(event, grpName) { //v6.0
+  var i,img,nbArr,args=MM_nbGroup.arguments;
+  if (event == "init" && args.length > 2) {
+    if ((img = MM_findObj(args[2])) != null && !img.MM_init) {
+      img.MM_init = true; img.MM_up = args[3]; img.MM_dn = img.src;
+      if ((nbArr = document[grpName]) == null) nbArr = document[grpName] = new Array();
+      nbArr[nbArr.length] = img;
+      for (i=4; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+        if (!img.MM_up) img.MM_up = img.src;
+        img.src = img.MM_dn = args[i+1];
+        nbArr[nbArr.length] = img;
+    } }
+  } else if (event == "over") {
+    document.MM_nbOver = nbArr = new Array();
+    for (i=1; i < args.length-1; i+=3) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = (img.MM_dn && args[i+2]) ? args[i+2] : ((args[i+1])? args[i+1] : img.MM_up);
+      nbArr[nbArr.length] = img;
+    }
+  } else if (event == "out" ) {
+    for (i=0; i < document.MM_nbOver.length; i++) {
+      img = document.MM_nbOver[i]; img.src = (img.MM_dn) ? img.MM_dn : img.MM_up; }
+  } else if (event == "down") {
+    nbArr = document[grpName];
+    if (nbArr)
+      for (i=0; i < nbArr.length; i++) { img=nbArr[i]; img.src = img.MM_up; img.MM_dn = 0; }
+    document[grpName] = nbArr = new Array();
+    for (i=2; i < args.length-1; i+=2) if ((img = MM_findObj(args[i])) != null) {
+      if (!img.MM_up) img.MM_up = img.src;
+      img.src = img.MM_dn = (args[i+1])? args[i+1] : img.MM_up;
+      nbArr[nbArr.length] = img;
+  } }
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
 </script>
 </head>
 
-<body onLoad="MM_preloadImages('button9xhover.fw.png','buttonabouthover.fw.png');updateClock()">
+<body onLoad="updateClock();MM_preloadImages('webchathover.fw.png','mptabhover.fw.png','updateshover.fw.png','button9xhover.fw.png','buttonabouthover.fw.png')">
+<div id="Layer4" class="style29" style="position:absolute; width:1128px; height:760px; z-index:7; left: 395px; top: 180px; background-color: #333333; layer-background-color: #333333; border: 1px none #000000;">
+  <div id="Layer10" style="position:absolute; width:272px; height:52px; z-index:13; left: 34px; top: 7px;"><img src="about.fw.png" width="257" height="40"></div>
+  <p align="center"><strong><em><u>What is this about anyway?</u> </em></strong></p>
+  <p align="center" class="style30">Long story short, it is just a little hobby of mine. I've always been interested in classic web design, vintage computing and graphical design. So I decided to fuse all three together all whilst using legacy software to build it. I hope you like it.</p>
+  <p align="center" class="style32"><u>Any long term goals? </u></p>
+  <p align="center" class="style30">As far as right now goes, this remains a hobby and a non-serious project, something I can relax whilst building and potentially add some cool features whilst learning a bit of HTML code in the process. And maybe connect with some new folk who also have a similar interest if they make it here.</p>
+  <p align="center" class="style32"><u>Software and Trivia:</u></p>
+  <p align="center" class="style30">I built this website using Macromedia Dreamweaver MX 2004 and Adobe Fireworks CS6. The design philosophy is loosely based around 1990s operating systems and GUI design such as Silicon Graphics IRIX, Microsoft Windows and Amiga Workbench.</p>
+  <p align="center" class="style30">&nbsp;</p>
+  <p align="center" class="style30">&nbsp;</p>
+  <p class="style31">&nbsp;</p>
+</div>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 <div id="Layer1" class="style21" style="position:absolute; width:200px; height:115px; z-index:1; left: 321px; top: 36px;"><img src="window.fw.png" width="1289" height="963" align="middle">
-  <div id="Layer4" class="style29" style="position:absolute; width:1128px; height:766px; z-index:1; left: 74px; top: 134px;">
-    <p align="center"><strong><em>Welcome to the NET STATION!</em></strong></p>
-    <p align="center"><strong><em><u>What is this about anyway?</u> </em></strong></p>
-    <p align="center" class="style30">Long story short, it is just a little hobby of mine. I've always been interested in classic web design, vintage computing and graphical design. So I decided to fuse all three together all whilst using legacy software to build it. I hope you like it! Check out the Net Surfers Social hub by navigating to the Home page.</p>
-    <p align="center" class="style32"><u>Any long term goals? </u></p>
-    <p align="center" class="style30">Good question! As far as right now goes, this remains a hobby and a non-serious project, something I can relax whilst building and potentially add some cool features whilst learning a bit of HTML code in the process. And maybe connect with some new folk who also have a similar interest - if they stumble across here!</p>
-    <p align="center" class="style32"><u>Software and Trivia:</u></p>
-    <p align="center" class="style30">I built this website using Macromedia Dreamweaver MX 2004 and Adobe Fireworks CS6.</p>
-    <p align="center" class="style30">The design philosophy is loosely based around 1990s operating systems and GUI design such as Silicon Graphics IRIX, Microsoft Windows  and Amiga Workbench.</p>
-    <p class="style31">&nbsp;</p>
-  </div>
+    <div id="Layer12" style="position:absolute; width:17px; height:60px; z-index:4; left: 619px; top: 465px;"><img src="cubefloat.gif" width="22" height="54"></div>
+    <div id="Layer7" style="position:absolute; width:493px; height:43px; z-index:2; left: 278px; top: 79px;">
+      <table border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td><a href="webchat.htm" target="_top" onClick="MM_nbGroup('down','group1','Netsurfers','',1)" onMouseOver="MM_nbGroup('over','Netsurfers','webchathover.fw.png','',1)" onMouseOut="MM_nbGroup('out')"><img src="webchat.fw.png" alt="" name="Netsurfers" width="162" height="38" border="0" onload=""></a></td>
+          <td><a href="servers.htm" target="_top" onClick="MM_nbGroup('down','group1','mpservers','',1)" onMouseOver="MM_nbGroup('over','mpservers','mptabhover.fw.png','',1)" onMouseOut="MM_nbGroup('out')"><img src="mptab.fw.png" alt="" name="mpservers" width="162" height="38" border="0" onload=""></a></td>
+          <td><a href="updates.htm" target="_top" onClick="MM_nbGroup('down','group1','updates','',1)" onMouseOver="MM_nbGroup('over','updates','updateshover.fw.png','',1)" onMouseOut="MM_nbGroup('out')"><img src="updates.fw.png" alt="" name="updates" width="162" height="38" border="0"></a></td>
+        </tr>
+      </table>
+    </div>
 </div>
-
 <div id="Layer2" style="position:absolute; width:220px; height:78px; z-index:2; left: 357px; top: 71px;"><img src="netstationgif.gif" width="224" height="76" align="left"></div>
-
 <div id="Layer5" style="position:absolute; width:134px; height:32px; z-index:7; left: 1402px; top: 76px;">
   <div align="center" class="style24"><span id="clockDisplay">12:34:56</span></div>
 </div>
-<div id="Layer3" style="position:absolute; width:209px; height:36px; z-index:3; left: 613px; top: 71px;"><a href="home.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Home','','button9xhover.fw.png',1)"><img src="button9xhome.fw.png" name="Home" width="100" height="34" border="0"></a><a href="#" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','buttonabouthover.fw.png',1)"><img src="buttonabout.fw.png" name="Image8" width="100" height="34" border="0"></a></div>
-
-<div id="Layer6" style="position:absolute; width:164px; height:28px; z-index:6; left: 852px; top: 78px;"><img src="lightabout.fw.png" width="163" height="22"></div>
+<div id="Layer3" style="position:absolute; width:209px; height:36px; z-index:3; left: 613px; top: 71px;"><a href="home.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Home','','button9xhover.fw.png',1)"><img src="button9xhome.fw.png" name="Home" width="100" height="34" border="0"></a><a href="about.htm" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image8','','buttonabouthover.fw.png',1)"><img src="buttonabout.fw.png" name="Image8" width="100" height="34" border="0"></a></div>
+<div id="Layer8" style="position:absolute; width:75px; height:25px; z-index:10; left: 1312px; top: 81px;"><a target="_blank" href="https://konym.live" title="To konym.live"><img src="https://konym.live/images/button.png" align="bottom" style="width: 75px; height: 25px" /></a></div>
+<div id="Layer6" style="position:absolute; width:164px; height:28px; z-index:6; left: 852px; top: 78px;"><img src="lighthome.png" width="163" height="22"></div>
+<div id="Layer9" style="position:absolute; width:71px; height:30px; z-index:11; left: 1233px; top: 71px;"><a href="car.htm"><img src="cotd.gif" width="80" height="45" border="0"></a></div>
 </body>
 </html>
